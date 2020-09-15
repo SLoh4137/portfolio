@@ -7,7 +7,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
@@ -36,7 +36,11 @@
     "@types/node": "^14.10.2",
     "@types/react": "^16.9.49",
     "@types/react-dom": "^16.9.8",
-    "prettier": "2.1.1"
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/parser": "^4.1.1",
+    "eslint": "^7.9.0",
+    "prettier": "2.1.1",
+    "typescript": "^4.0.2"
   },
   "repository": {
     "type": "git",
