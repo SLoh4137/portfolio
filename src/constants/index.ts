@@ -33,6 +33,7 @@ export const COLORS = {
 }
 
 export type CssVarsKeys = keyof typeof COLORS
+export type ColorModes = "light" | "dark"
 
 export const COLOR_MODE_KEY = "color-mode"
 export const INITIAL_COLOR_MODE_CSS_PROP = "--initial-color-mode"

@@ -1,4 +1,4 @@
-import { COLORS, CssVarsKeys } from "constants/index"
+import { CssVarsKeys } from "constants/index"
 
 export const cssVar = (str: CssVarsKeys) => `var(--${str})`
 
