@@ -5,14 +5,14 @@ import DarkModeToggle from "components/DarkModeToggle/DarkModeToggle"
 import SEO from "components/SEO"
 import Container from "components/PageLayout/Container"
 import { cssVar } from "utils/index"
+import { Heading, Paragraph } from "components/Typography"
 
 const Wrapper = styled.div`
     padding: 20px;
     color: ${cssVar("colorText")};
 `
 
-const Header = styled.h1`
-    font-size: 64px;
+const Header = styled(Heading)`
     text-align: center;
     color: ${cssVar("colorPrimary")};
 `
@@ -22,8 +22,9 @@ export default function App() {
         <Wrapper>
             <SEO title="Home" />
             <Container maxWidth="lg">
-                <Header>I am colorful</Header>
-                Hello dark world!
+                <Header size={1}>I am colorful</Header>
+                <Paragraph>Hello dark world!</Paragraph>
+
                 <DarkModeToggle />
             </Container>
         </Wrapper>

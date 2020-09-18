@@ -1,5 +1,6 @@
 import styled, {css} from "styled-components"
 import { BREAKPOINT_SIZES, BREAKPOINTS } from "constants/index"
+import { spacing } from "utils/index"
 
 interface ContainerProps {
     maxWidth?: keyof typeof BREAKPOINT_SIZES
@@ -28,6 +29,8 @@ const Container = styled.div<ContainerProps>`
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding-left: ${spacing(2)};
+    padding-right: ${spacing(2)};
     ${props => props.maxWidth && maxWidthStyles[props.maxWidth]} 
 `
 
