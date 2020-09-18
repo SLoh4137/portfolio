@@ -1,4 +1,3 @@
-import React from "react"
 import { createGlobalStyle } from "styled-components"
 import { cssVar } from "utils/index"
 import { SPACING } from "constants/index"
