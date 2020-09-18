@@ -32,8 +32,37 @@ export const COLORS = {
     },
 }
 
-export type CssVarsKeys = keyof typeof COLORS
 export type ColorModes = "light" | "dark"
 
 export const COLOR_MODE_KEY = "color-mode"
 export const INITIAL_COLOR_MODE_CSS_PROP = "--initial-color-mode"
+
+export const BREAKPOINT_SIZES = {
+    xs: 0,
+    sm: 600,
+    md: 960,
+    lg: 1280,
+    xl: 1920,
+}
+
+const maxWidth = (breakpoint: number) => `(max-width: ${breakpoint}px)`
+const minWidth = (breakpoint: number) => `(min-width: ${breakpoint + 1}px)`
+
+export const BREAKPOINTS = {
+    xsMax: maxWidth(BREAKPOINT_SIZES.xs),
+    smMax: maxWidth(BREAKPOINT_SIZES.sm),
+    mdMax: maxWidth(BREAKPOINT_SIZES.md),
+    lgMax: maxWidth(BREAKPOINT_SIZES.lg),
+    xlMax: maxWidth(BREAKPOINT_SIZES.xl),
+
+    xsMin: minWidth(BREAKPOINT_SIZES.xs),
+    smMin: minWidth(BREAKPOINT_SIZES.sm),
+    mdMin: minWidth(BREAKPOINT_SIZES.md),
+    lgMin: minWidth(BREAKPOINT_SIZES.lg),
+    xlMin: minWidth(BREAKPOINT_SIZES.xl),
+    desktopMin: minWidth(BREAKPOINT_SIZES.md),
+}
+
+export const SPACING = 8
+
+export type CssVarsKeys = keyof typeof COLORS | "spacing"

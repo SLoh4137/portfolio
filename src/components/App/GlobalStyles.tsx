@@ -1,6 +1,7 @@
 import React from "react"
 import { createGlobalStyle } from "styled-components"
 import { cssVar } from "utils/index"
+import { SPACING } from "constants/index"
 
 const GlobalStyles = createGlobalStyle`
     *, *:before, *:after {
@@ -9,9 +10,15 @@ const GlobalStyles = createGlobalStyle`
         Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
 
+    html {
+        --spacing: ${SPACING}px;
+    }
+
     body {
         background: ${cssVar("colorBackground")};
         color: ${cssVar("colorText")};
+        margin: 0;
+        padding: 0;
     }
 
     a {

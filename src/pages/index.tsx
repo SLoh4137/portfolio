@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 import DarkModeToggle from "components/DarkModeToggle/DarkModeToggle"
+import SEO from "components/SEO"
 import { cssVar } from "utils/index"
 
 const Wrapper = styled.div`
@@ -14,10 +15,13 @@ const Header = styled.h1`
     color: ${cssVar("colorPrimary")};
 `
 
-export default () => (
-    <Wrapper>
-        <Header>I am colorful</Header>
-        Hello dark world!
-        <DarkModeToggle />
-    </Wrapper>
-)
+export default function App() {
+    return (
+        <Wrapper>
+            <SEO title="Home" />
+            <Header>I am colorful</Header>
+            Hello dark world!
+            <DarkModeToggle />
+        </Wrapper>
+    )
+}

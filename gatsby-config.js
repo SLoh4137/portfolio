@@ -5,7 +5,13 @@
  */
 
 module.exports = {
-    /* Your site config here */
+    siteMetadata: {
+        title: "Stephan Loh",
+        author: "Stephan Loh",
+        description: "Portfolio for Stephan Loh, a software engineer who loves learning about optimization",
+        siteUrl: "https://stephanloh.gtsb.io",
+
+    },
     plugins: [
         `gatsby-plugin-typescript`,
         `gatsby-plugin-typegen`,
