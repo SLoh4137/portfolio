@@ -11,12 +11,14 @@ export const COLORS = {
         dark: "hsl(210deg, 30%, 8%)",
     },
     "color-primary": {
-        light: "#619846", // Green-ish brown
-        dark: "hsl(36deg, 100%, 50%)", // Orange-ish yellow
+        light: "hsl(100deg, 37%, 44%)", // Green-ish brown
+        // dark: "hsl(36deg, 100%, 50%)", // Orange-ish yellow
+        dark: "hsl(100deg, 37%, 44%)",
     },
     "color-secondary": {
         light: "hsl(186deg, 39%, 50%)", // Purplish-blue
-        dark: "hsl(190deg, 100%, 40%)", // Cyan
+        // dark: "hsl(190deg, 100%, 40%)", // Cyan
+        dark: "hsl(36deg, 100%, 50%)",
     },
     "color-gradient-1": {
         light: "#619846", // Green-ish brown
