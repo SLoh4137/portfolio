@@ -8,21 +8,34 @@ import { cssVar } from "utils/index"
 import { Heading, Paragraph } from "components/Typography"
 
 const Wrapper = styled.div`
-    padding: 20px;
-    color: ${cssVar("colorText")};
+    color: ${cssVar("color-text")};
+`
+
+const GradientBanner = styled.div`
+    width: 100%;
+    height: 20vh;
+    background: radial-gradient(ellipse at top, ${cssVar("color-gradient-1")}, transparent),
+        radial-gradient(ellipse at bottom,  ${cssVar("color-gradient-2")}, transparent);
 `
 
 const Header = styled(Heading)`
     text-align: center;
-    color: ${cssVar("colorPrimary")};
+    color: ${cssVar("color-primary")};
+`
+
+const SecondaryHeader = styled(Heading)`
+    text-align: center;
+    color: ${cssVar("color-secondary")}    
 `
 
 export default function App() {
     return (
         <Wrapper>
             <SEO title="Home" />
+            <GradientBanner />
             <Container maxWidth="lg">
                 <Header size={1}>I am colorful</Header>
+                <SecondaryHeader size={2}>I am a secondary header</SecondaryHeader>
                 <Paragraph>Hello dark world!</Paragraph>
 
                 <DarkModeToggle />

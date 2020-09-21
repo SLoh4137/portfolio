@@ -4,12 +4,12 @@ import styled from "styled-components"
 import { cssVar } from "utils/index"
 
 const Base = styled.div`
-    color: ${cssVar("colorText")};
+    color: ${cssVar("color-text")};
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 
     b {
-        color: ${cssVar("colorPrimary")};
+        color: ${cssVar("color-primary")};
     }
 `
 

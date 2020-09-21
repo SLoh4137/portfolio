@@ -14,14 +14,14 @@ const GlobalStyles = createGlobalStyle`
     }
 
     body {
-        background: ${cssVar("colorBackground")};
-        color: ${cssVar("colorText")};
+        background: ${cssVar("color-background")};
+        color: ${cssVar("color-text")};
         margin: 0;
         padding: 0;
     }
 
     a {
-        color: ${cssVar("colorSecondary")};
+        color: ${cssVar("color-secondary")};
     }
 `
 

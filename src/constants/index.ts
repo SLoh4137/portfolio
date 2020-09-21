@@ -1,32 +1,41 @@
 // Inspired by Josh W Comeau's Quest for the Perfect Dark Mode
 // https://github.com/joshwcomeau/dark-mode-minimal/blob/master/src/constants.js
 export const COLORS = {
-    colorText: {
+    "color-text": {
         light: "hsl(0deg, 0%, 10%)", // white
         dark: "hsl(0deg, 0%, 100%)", // near-black
     },
-    colorBackground: {
+    "color-background": {
         light: "hsl(0deg, 0%, 100%)", // white
-        dark: "hsl(250deg, 70%, 7%)", // navy navy blue
+        //dark: "hsl(250deg, 70%, 7%)", // navy navy blue
+        dark: "hsl(210deg, 30%, 8%)",
     },
-    colorPrimary: {
-        light: "hsl(340deg, 100%, 40%)", // Pinkish-red
-        dark: "hsl(50deg, 100%, 50%)", // Yellow
+    "color-primary": {
+        light: "#619846", // Green-ish brown
+        dark: "hsl(36deg, 100%, 50%)", // Orange-ish yellow
     },
-    colorSecondary: {
-        light: "hsl(250deg, 100%, 50%)", // Purplish-blue
+    "color-secondary": {
+        light: "hsl(186deg, 39%, 50%)", // Purplish-blue
         dark: "hsl(190deg, 100%, 40%)", // Cyan
     },
+    "color-gradient-1": {
+        light: "#619846", // Green-ish brown
+        dark: "hsl(210deg, 30%, 8%)",
+    },
+    "color-gradient-2": {
+        light: "rgb(134,171,96)", // Light green
+        dark: "hsl(36deg, 100%, 50%)",
+    },
     // Grays, scaling from least-noticeable to most-noticeable
-    colorGray300: {
+    "color-gray-300": {
         light: "hsl(0deg, 0%, 70%)",
         dark: "hsl(0deg, 0%, 30%)",
     },
-    colorGray500: {
+    "color-gray-500": {
         light: "hsl(0deg, 0%, 50%)",
         dark: "hsl(0deg, 0%, 50%)",
     },
-    colorGray700: {
+    "color-gray-700": {
         light: "hsl(0deg, 0%, 30%)",
         dark: "hsl(0deg, 0%, 70%)",
     },
