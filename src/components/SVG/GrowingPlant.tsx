@@ -8,6 +8,7 @@ import PlantStar from "./PlantStar"
 import { Point } from "./index"
 
 import useDashOffset from "hooks/useDashOffset"
+import usePrefersReducedMotion from "hooks/usePrefersReducedMotion"
 
 const StyledSvg = styled.svg`
     height: 100%;
@@ -41,6 +42,7 @@ export default function GrowingPlant(props: GrowingPlantProps) {
     const dashOffset = useDashOffset(pathRef)
     const lines = startPoints.map(point => connectToPoint(point)).join(" ")
     const pathInstructions = `M 0, ${height} ${lines}`
+    const prefersReducedMotion = usePrefersReducedMotion()
 
     return (
         <StyledSvg
@@ -55,7 +57,12 @@ export default function GrowingPlant(props: GrowingPlantProps) {
             ))}
 
             {dashOffset ? (
-                <Spring from={{ x: dashOffset }} to={{ x: 0 }} config={config.molasses}>
+                <Spring
+                    from={{ x: dashOffset }}
+                    to={{ x: 0 }}
+                    config={config.molasses}
+                    immediate={prefersReducedMotion}
+                >
                     {props => (
                         <animated.path
                             d={pathInstructions}
@@ -67,11 +74,7 @@ export default function GrowingPlant(props: GrowingPlantProps) {
                     )}
                 </Spring>
             ) : (
-                <path
-                    d={pathInstructions}
-                    stroke={"none"}
-                    ref={pathRef}
-                />
+                <path d={pathInstructions} stroke={"none"} ref={pathRef} />
             )}
         </StyledSvg>
     )
