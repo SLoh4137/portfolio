@@ -1,9 +1,13 @@
 import React from "react"
 import styled from "styled-components"
-import { cssVar } from "utils/index"
+import { animated, config } from "react-spring"
+import { Spring } from "react-spring/renderprops"
 
+import { cssVar } from "utils/index"
 import PlantStar from "./PlantStar"
 import { Point } from "./index"
+
+import useDashOffset from "hooks/useDashOffset"
 
 const StyledSvg = styled.svg`
     height: 100%;
@@ -11,17 +15,14 @@ const StyledSvg = styled.svg`
 `
 
 type ConnectorProps = {
-    from: Point,
-    to: Point,
+    from: Point
+    to: Point
 }
-const Connector = ({from, to}: ConnectorProps) => (
-    <line
-        x1={from.x}
-        y1={from.y}
-        x2={to.x}
-        y2={to.y}
-    />
+const Connector = ({ from, to }: ConnectorProps) => (
+    <line x1={from.x} y1={from.y} x2={to.x} y2={to.y} />
 )
+
+const connectToPoint = (to: Point) => `L ${to.x},${to.y}`
 
 type GrowingPlantProps = {}
 
@@ -36,11 +37,11 @@ export default function GrowingPlant(props: GrowingPlantProps) {
         })
     }
 
-    const lines = startPoints.map((point, index) => {
-        const from = index > 0 ? startPoints[index - 1] : {x: 0, y: height}
+    const pathRef = React.createRef<SVGPathElement>()
+    const dashOffset = useDashOffset(pathRef)
+    const lines = startPoints.map(point => connectToPoint(point)).join(" ")
+    const pathInstructions = `M 0, ${height} ${lines}`
 
-        return <Connector from={from} to={point} />
-    })
     return (
         <StyledSvg
             width={width}
@@ -52,7 +53,26 @@ export default function GrowingPlant(props: GrowingPlantProps) {
             {startPoints.map(point => (
                 <PlantStar startPoint={point} key={`${point.x}-${point.y}`} />
             ))}
-            {lines}
+
+            {dashOffset ? (
+                <Spring from={{ x: dashOffset }} to={{ x: 0 }} config={config.molasses}>
+                    {props => (
+                        <animated.path
+                            d={pathInstructions}
+                            strokeDashoffset={props.x}
+                            strokeDasharray={dashOffset}
+                            ref={pathRef}
+                            // style={props}
+                        />
+                    )}
+                </Spring>
+            ) : (
+                <path
+                    d={pathInstructions}
+                    stroke={"none"}
+                    ref={pathRef}
+                />
+            )}
         </StyledSvg>
     )
 }
