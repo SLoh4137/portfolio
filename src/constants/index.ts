@@ -74,6 +74,12 @@ export const BREAKPOINTS = {
     desktopMin: minWidth(BREAKPOINT_SIZES.md),
 }
 
+export const SHADOWS = [
+    "rgba(0, 0, 0, 0.2) 0px 3px 3px -2px, rgba(0, 0, 0, 0.14) 0px 3px 4px 0px, rgba(0, 0, 0, 0.12) 0px 1px 8px 0px" // Taken from Material-UI https://material-ui.com/system/shadows/#api
+]
+
 export const SPACING = 8
 
-export type CssVarsKeys = keyof typeof COLORS | "spacing"
+export const BORDER_RADIUS = 8
+
+export type CssVarsKeys = keyof typeof COLORS | "spacing" | "border-radius"

@@ -12,24 +12,27 @@ const Wrapper = styled.div`
     color: ${cssVar("color-text")};
 `
 
-const Header = styled(Heading)`
-    text-align: center;
-    color: ${cssVar("color-primary")};
-`
-
 const SecondaryHeader = styled(Heading)`
     text-align: center;
-    color: ${cssVar("color-secondary")}    
+    color: ${cssVar("color-secondary")};
 `
 
-export default function App() {
+export default function Index() {
     return (
         <Wrapper>
             <SEO title="Home" />
-            <Gradient height="20vh"/>
+            <Gradient height="20vh" />
             <Container maxWidth="lg">
-                <Header size={1}>I am colorful</Header>
-                <SecondaryHeader size={2}>I am a secondary header</SecondaryHeader>
+                <Heading
+                    size={1}
+                    color={cssVar("color-primary")}
+                    textAlign="center"
+                >
+                    I am colorful
+                </Heading>
+                <SecondaryHeader size={2}>
+                    I am a secondary header
+                </SecondaryHeader>
                 <Paragraph>Hello dark world!</Paragraph>
 
                 <DarkModeToggle />

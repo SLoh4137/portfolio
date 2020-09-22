@@ -16,6 +16,13 @@ module.exports = {
         `gatsby-plugin-typescript`,
         `gatsby-plugin-typegen`,
         `gatsby-alias-imports`,
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `assets`,
+                path: `${__dirname}/src/assets`,
+            },
+        },
         `gatsby-plugin-styled-components`,
         `gatsby-transformer-sharp`,
         `gatsby-plugin-sharp`,

@@ -77,6 +77,8 @@ type Directory = Node & {
   readonly birthtime: Maybe<Scalars['Date']>;
   /** @deprecated Use `birthTime` instead */
   readonly birthtimeMs: Maybe<Scalars['Float']>;
+  readonly blksize: Maybe<Scalars['Int']>;
+  readonly blocks: Maybe<Scalars['Int']>;
   readonly id: Scalars['ID'];
   readonly parent: Maybe<Node>;
   readonly children: ReadonlyArray<Node>;
@@ -198,6 +200,8 @@ enum DirectoryFieldsEnum {
   ctime = 'ctime',
   birthtime = 'birthtime',
   birthtimeMs = 'birthtimeMs',
+  blksize = 'blksize',
+  blocks = 'blocks',
   id = 'id',
   parent___id = 'parent.id',
   parent___parent___id = 'parent.parent.id',
@@ -318,6 +322,8 @@ type DirectoryFilterInput = {
   readonly ctime: Maybe<DateQueryOperatorInput>;
   readonly birthtime: Maybe<DateQueryOperatorInput>;
   readonly birthtimeMs: Maybe<FloatQueryOperatorInput>;
+  readonly blksize: Maybe<IntQueryOperatorInput>;
+  readonly blocks: Maybe<IntQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
   readonly parent: Maybe<NodeFilterInput>;
   readonly children: Maybe<NodeFilterListInput>;
@@ -378,6 +384,10 @@ type File = Node & {
   readonly birthtime: Maybe<Scalars['Date']>;
   /** @deprecated Use `birthTime` instead */
   readonly birthtimeMs: Maybe<Scalars['Float']>;
+  readonly blksize: Maybe<Scalars['Int']>;
+  readonly blocks: Maybe<Scalars['Int']>;
+  /** Copy file to static directory and return public url to it */
+  readonly publicURL: Maybe<Scalars['String']>;
   readonly childImageSharp: Maybe<ImageSharp>;
   readonly id: Scalars['ID'];
   readonly parent: Maybe<Node>;
@@ -500,6 +510,9 @@ enum FileFieldsEnum {
   ctime = 'ctime',
   birthtime = 'birthtime',
   birthtimeMs = 'birthtimeMs',
+  blksize = 'blksize',
+  blocks = 'blocks',
+  publicURL = 'publicURL',
   childImageSharp___fixed___base64 = 'childImageSharp.fixed.base64',
   childImageSharp___fixed___tracedSVG = 'childImageSharp.fixed.tracedSVG',
   childImageSharp___fixed___aspectRatio = 'childImageSharp.fixed.aspectRatio',
@@ -711,6 +724,9 @@ type FileFilterInput = {
   readonly ctime: Maybe<DateQueryOperatorInput>;
   readonly birthtime: Maybe<DateQueryOperatorInput>;
   readonly birthtimeMs: Maybe<FloatQueryOperatorInput>;
+  readonly blksize: Maybe<IntQueryOperatorInput>;
+  readonly blocks: Maybe<IntQueryOperatorInput>;
+  readonly publicURL: Maybe<StringQueryOperatorInput>;
   readonly childImageSharp: Maybe<ImageSharpFilterInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
   readonly parent: Maybe<NodeFilterInput>;
@@ -1378,6 +1394,9 @@ type Query_fileArgs = {
   ctime: Maybe<DateQueryOperatorInput>;
   birthtime: Maybe<DateQueryOperatorInput>;
   birthtimeMs: Maybe<FloatQueryOperatorInput>;
+  blksize: Maybe<IntQueryOperatorInput>;
+  blocks: Maybe<IntQueryOperatorInput>;
+  publicURL: Maybe<StringQueryOperatorInput>;
   childImageSharp: Maybe<ImageSharpFilterInput>;
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
@@ -1426,6 +1445,8 @@ type Query_directoryArgs = {
   ctime: Maybe<DateQueryOperatorInput>;
   birthtime: Maybe<DateQueryOperatorInput>;
   birthtimeMs: Maybe<FloatQueryOperatorInput>;
+  blksize: Maybe<IntQueryOperatorInput>;
+  blocks: Maybe<IntQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
@@ -2051,6 +2072,7 @@ enum SitePageFieldsEnum {
   pluginCreator___resolve = 'pluginCreator.resolve',
   pluginCreator___name = 'pluginCreator.name',
   pluginCreator___version = 'pluginCreator.version',
+  pluginCreator___pluginOptions___name = 'pluginCreator.pluginOptions.name',
   pluginCreator___pluginOptions___path = 'pluginCreator.pluginOptions.path',
   pluginCreator___pluginOptions___pathCheck = 'pluginCreator.pluginOptions.pathCheck',
   pluginCreator___nodeAPIs = 'pluginCreator.nodeAPIs',
@@ -2239,6 +2261,7 @@ enum SitePluginFieldsEnum {
   resolve = 'resolve',
   name = 'name',
   version = 'version',
+  pluginOptions___name = 'pluginOptions.name',
   pluginOptions___path = 'pluginOptions.path',
   pluginOptions___pathCheck = 'pluginOptions.pathCheck',
   nodeAPIs = 'nodeAPIs',
@@ -2354,11 +2377,13 @@ type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 type SitePluginPluginOptions = {
+  readonly name: Maybe<Scalars['String']>;
   readonly path: Maybe<Scalars['String']>;
   readonly pathCheck: Maybe<Scalars['Boolean']>;
 };
 
 type SitePluginPluginOptionsFilterInput = {
+  readonly name: Maybe<StringQueryOperatorInput>;
   readonly path: Maybe<StringQueryOperatorInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
 };
@@ -2405,5 +2430,14 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
+
+type ImageFragment = { readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluid_withWebpFragment> }> };
+
+type GatsbyImageSharpFluid_withWebpFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type NotFoundPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type NotFoundPageQuery = { readonly file: Maybe<ImageFragment> };
 
 }
