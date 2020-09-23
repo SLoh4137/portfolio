@@ -10,7 +10,7 @@ export default function useDashOffset(pathRef: React.RefObject<SVGPathElement>) 
         }
 
         setOffset(pathRef.current.getTotalLength())
-    }, [pathRef])
+    }, [])
 
     return offset
 }
