@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components"
-import { cssVar } from "utils/index"
-import { SPACING } from "constants/index"
+import { cssVar } from "@utils"
+import { SPACING } from "@constants"
 
 const GlobalStyles = createGlobalStyle`
     *, *:before, *:after {

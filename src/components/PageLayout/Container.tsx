@@ -1,6 +1,6 @@
 import styled, {css} from "styled-components"
-import { BREAKPOINT_SIZES, BREAKPOINTS } from "constants/index"
-import { spacing } from "utils/index"
+import { BREAKPOINT_SIZES, BREAKPOINTS } from "@constants"
+import { spacing } from "@utils"
 
 interface ContainerProps {
     maxWidth?: keyof typeof BREAKPOINT_SIZES

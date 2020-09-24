@@ -9,7 +9,7 @@ import {
     COLOR_MODE_KEY,
     INITIAL_COLOR_MODE_CSS_PROP,
     ColorModes,
-} from "constants/index"
+} from "@constants"
 
 export interface ThemeContextValue {
     colorMode: ColorModes

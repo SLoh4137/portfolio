@@ -4,7 +4,7 @@ import styled from "styled-components"
 import DarkModeToggle from "components/DarkModeToggle/DarkModeToggle"
 import SEO from "components/SEO"
 import Container from "components/PageLayout/Container"
-import { cssVar, spacing } from "utils/index"
+import { cssVar, spacing } from "@utils"
 import { Heading, Paragraph } from "components/Typography"
 import { GrowingPlant } from "components/SVG"
 

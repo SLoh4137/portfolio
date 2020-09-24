@@ -1,4 +1,4 @@
-import { CssVarsKeys, SPACING } from "constants/index"
+import { CssVarsKeys, SPACING } from "@constants"
 
 export const cssVar = (str: CssVarsKeys) => `var(--${str})`
 

@@ -8,14 +8,22 @@ module.exports = {
     siteMetadata: {
         title: "Stephan Loh",
         author: "Stephan Loh",
-        description: "Portfolio for Stephan Loh, a software engineer who loves learning about optimization",
+        description:
+            "Portfolio for Stephan Loh, a software engineer who loves learning about optimization",
         siteUrl: "https://stephanloh.gtsb.io",
-
     },
     plugins: [
         `gatsby-plugin-typescript`,
         `gatsby-plugin-typegen`,
-        `gatsby-alias-imports`,
+        {
+            resolve: `gatsby-alias-imports`,
+            options: {
+                aliases: {
+                    "@constants": `src/constants`,
+                    "@utils": `src/utils`,
+                },
+            },
+        },
         {
             resolve: `gatsby-source-filesystem`,
             options: {

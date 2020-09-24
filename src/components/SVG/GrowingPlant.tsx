@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { animated, config } from "react-spring"
 import { Spring } from "react-spring/renderprops"
 
-import { cssVar, random } from "utils/index"
+import { cssVar, random } from "@utils"
 import PlantStar from "./PlantStar"
 import { Point } from "./index"
 

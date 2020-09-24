@@ -1,7 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 
-import { cssVar } from "utils/index"
+import { BREAKPOINTS } from "@constants"
+import { cssVar } from "@utils"
 import { TextAlignType } from "./index"
 
 interface HeadingProps {

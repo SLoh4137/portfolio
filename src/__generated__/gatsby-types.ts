@@ -2072,6 +2072,8 @@ enum SitePageFieldsEnum {
   pluginCreator___resolve = 'pluginCreator.resolve',
   pluginCreator___name = 'pluginCreator.name',
   pluginCreator___version = 'pluginCreator.version',
+  pluginCreator___pluginOptions___aliases____constants = 'pluginCreator.pluginOptions.aliases._constants',
+  pluginCreator___pluginOptions___aliases____utils = 'pluginCreator.pluginOptions.aliases._utils',
   pluginCreator___pluginOptions___name = 'pluginCreator.pluginOptions.name',
   pluginCreator___pluginOptions___path = 'pluginCreator.pluginOptions.path',
   pluginCreator___pluginOptions___pathCheck = 'pluginCreator.pluginOptions.pathCheck',
@@ -2261,6 +2263,8 @@ enum SitePluginFieldsEnum {
   resolve = 'resolve',
   name = 'name',
   version = 'version',
+  pluginOptions___aliases____constants = 'pluginOptions.aliases._constants',
+  pluginOptions___aliases____utils = 'pluginOptions.aliases._utils',
   pluginOptions___name = 'pluginOptions.name',
   pluginOptions___path = 'pluginOptions.path',
   pluginOptions___pathCheck = 'pluginOptions.pathCheck',
@@ -2377,12 +2381,24 @@ type SitePluginPackageJsonPeerDependenciesFilterListInput = {
 };
 
 type SitePluginPluginOptions = {
+  readonly aliases: Maybe<SitePluginPluginOptionsAliases>;
   readonly name: Maybe<Scalars['String']>;
   readonly path: Maybe<Scalars['String']>;
   readonly pathCheck: Maybe<Scalars['Boolean']>;
 };
 
+type SitePluginPluginOptionsAliases = {
+  readonly _constants: Maybe<Scalars['String']>;
+  readonly _utils: Maybe<Scalars['String']>;
+};
+
+type SitePluginPluginOptionsAliasesFilterInput = {
+  readonly _constants: Maybe<StringQueryOperatorInput>;
+  readonly _utils: Maybe<StringQueryOperatorInput>;
+};
+
 type SitePluginPluginOptionsFilterInput = {
+  readonly aliases: Maybe<SitePluginPluginOptionsAliasesFilterInput>;
   readonly name: Maybe<StringQueryOperatorInput>;
   readonly path: Maybe<StringQueryOperatorInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;

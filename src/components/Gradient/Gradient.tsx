@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { cssVar } from "utils/index"
+import { cssVar } from "@utils"
 
 interface GradientProps {
     height: string,

@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { graphql } from "gatsby"
 import Img, { GatsbyImageOptionalProps } from "gatsby-image"
-import { BORDER_RADIUS } from "constants/index"
+import { BORDER_RADIUS } from "@constants"
 
 const StyledImg = styled(Img)`
     border-radius: ${BORDER_RADIUS}px;
