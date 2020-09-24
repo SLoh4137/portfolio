@@ -1,31 +1,29 @@
 import React from "react"
 import styled from "styled-components"
+import { graphql } from "gatsby"
 
-import DarkModeToggle from "components/DarkModeToggle/DarkModeToggle"
 import SEO from "components/SEO"
-import Container from "components/PageLayout/Container"
+import { Container } from "components/PageLayout"
 import { cssVar, spacing } from "@utils"
 import { Heading, Paragraph } from "components/Typography"
 import { GrowingPlant } from "components/SVG"
+import { Image } from "components/Image"
 
-const Wrapper = styled.div`
+const Wrapper = styled(Container)`
     color: ${cssVar("color-text")};
     padding: ${spacing(2)};
     z-index: 1;
 `
 
-const SecondaryHeader = styled(Heading)`
-    text-align: center;
-    color: ${cssVar("color-secondary")};
-`
-
 const SVGBackground = styled.div`
     position: absolute;
-    width: 10vh;
+    width: 5vw;
     height: 100vh;
     z-index: 0;
     pointer-events: none;
 `
+
+const MainImage = styled(Image)``
 
 const SVGLeft = styled(SVGBackground)`
     left: 0;
@@ -36,7 +34,12 @@ const SVGRight = styled(SVGBackground)`
     right: 0;
 `
 
-export default function Index() {
+type Props = {
+    data: GatsbyTypes.IndexPageQuery
+}
+
+export default function Index(props: Props) {
+    const { data } = props
     return (
         <>
             <SEO title="Home" />
@@ -46,31 +49,32 @@ export default function Index() {
             <SVGRight>
                 <GrowingPlant />
             </SVGRight>
-            <Wrapper>
-                <Container maxWidth="lg" style={{ textAlign: "center" }}>
-                    <Heading size={1} color={cssVar("color-primary")}>
-                        I am colorful
-                    </Heading>
-                    <Heading size={2} color={cssVar("color-secondary")}>
-                        I am a secondary header
-                    </Heading>
-                    <Heading size={3} color={cssVar("color-gradient-1")}>
-                        Header 3
-                    </Heading>
-                    <Heading size={4}>
-                        Header 4
-                    </Heading>
-                    <Heading size={5}>
-                        Header 5
-                    </Heading>
-                    <Heading size={6}>
-                        Header 6
-                    </Heading>
-                    <Paragraph>Hello dark world!</Paragraph>
-
-                    <DarkModeToggle />
+            <Wrapper maxWidth="lg">
+                <Heading
+                    size={2}
+                    color={cssVar("color-primary")}
+                    textAlign="center"
+                >
+                    Hello! I'm Stephan
+                </Heading>
+                <Container maxWidth="sm">
+                    <MainImage
+                        image={data.me}
+                        alt="Picture of me eating gelato"
+                    />
                 </Container>
+                <Heading size={2}>I am a secondary header</Heading>
+                <Paragraph>Hello dark world!</Paragraph>
+                Other text
             </Wrapper>
         </>
     )
 }
+
+export const query = graphql`
+    query IndexPage {
+        me: file(relativePath: { eq: "stephan_loh.jpg" }) {
+            ...Image
+        }
+    }
+`

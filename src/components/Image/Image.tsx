@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { graphql } from "gatsby"
 import Img, { GatsbyImageOptionalProps } from "gatsby-image"
 import { BORDER_RADIUS } from "@constants"
@@ -9,14 +9,15 @@ const StyledImg = styled(Img)`
 `
 
 type ImageProps = GatsbyImageOptionalProps & {
-    image: GatsbyTypes.Maybe<GatsbyTypes.ImageFragment>,
-    alt: string,
+    image: GatsbyTypes.Maybe<GatsbyTypes.ImageFragment>
+    alt: string
 }
 
 export default function Image(props: ImageProps) {
     const { image, alt, ...rest } = props
 
-    if (!image || !image.childImageSharp) throw new Error(`${alt} image does not exist`)
+    if (!image || !image.childImageSharp)
+        throw new Error(`${alt} image does not exist`)
 
     return (
         // @ts-ignore Not sure why it's not allowing fluid here

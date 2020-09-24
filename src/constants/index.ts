@@ -82,4 +82,9 @@ export const SPACING = 8
 
 export const BORDER_RADIUS = 8
 
+export const Z_INDICES = {
+    main: 10,
+    header: 100,
+}
+
 export type CssVarsKeys = keyof typeof COLORS | "spacing" | "border-radius"
