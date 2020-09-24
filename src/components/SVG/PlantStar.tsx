@@ -3,7 +3,7 @@ import { useSpring, animated, config } from "react-spring"
 
 import usePrefersReducedMotion from "hooks/usePrefersReducedMotion"
 import { Point } from "./index"
-import { random } from "utils/"
+import { random } from "@utils"
 
 type PlantStarProps = {
     startPoint: Point

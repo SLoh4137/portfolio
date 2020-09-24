@@ -47,17 +47,25 @@ export default function Index() {
                 <GrowingPlant />
             </SVGRight>
             <Wrapper>
-                <Container maxWidth="lg">
-                    <Heading
-                        size={1}
-                        color={cssVar("color-primary")}
-                        textAlign="center"
-                    >
+                <Container maxWidth="lg" style={{ textAlign: "center" }}>
+                    <Heading size={1} color={cssVar("color-primary")}>
                         I am colorful
                     </Heading>
-                    <SecondaryHeader size={2}>
+                    <Heading size={2} color={cssVar("color-secondary")}>
                         I am a secondary header
-                    </SecondaryHeader>
+                    </Heading>
+                    <Heading size={3} color={cssVar("color-gradient-1")}>
+                        Header 3
+                    </Heading>
+                    <Heading size={4}>
+                        Header 4
+                    </Heading>
+                    <Heading size={5}>
+                        Header 5
+                    </Heading>
+                    <Heading size={6}>
+                        Header 6
+                    </Heading>
                     <Paragraph>Hello dark world!</Paragraph>
 
                     <DarkModeToggle />
